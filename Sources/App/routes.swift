@@ -30,18 +30,49 @@ public func routes(_ router: Router) throws {
         return "Hello, \(name)!"
     }
     
-    // 1
-    router.post("api", "pets") { req -> Future<Pet> in // 2
-        return try req.content.decode(Pet.self).flatMap(to: Pet.self) { pet in // 3
-            return pet.save(on: req)
-        }
-    }
+//    // 1
+//    router.get("api", "pets") { req -> Future<[Pet]> in // 2
+//        return Pet.query(on: req).all()
+//    }
+//    
+//    // 1
+//    router.get("api", "pets", Pet.parameter) { req -> Future<Pet> in
+//        // 2
+//        return try req.parameters.next(Pet.self)
+//    }
+//    
+//    // 1
+//    router.put("api", "pets", Pet.parameter) { req -> Future<Pet> in
+//        // 2
+//        return try flatMap(to: Pet.self,
+//                           req.parameters.next(Pet.self),
+//                           req.content.decode(Pet.self)) { pet, updatedPet in
+//                            // 3
+//                            pet.name = updatedPet.name
+//                            pet.age = updatedPet.age
+//                            // 4
+//                            return pet.save(on: req)
+//        }
+//    }
+//    // 1
+//    router.delete("api", "pets", Pet.parameter) { req -> Future<HTTPStatus> in
+//        // 2
+//        return try req.parameters.next(Pet.self)
+//            // 3
+//            .delete(on: req)
+//            // 4
+//            .transform(to: HTTPStatus.noContent)
+//    }
 
-//    // Example of configuring a controller
-//    let todoController = TodoController()
-//    router.get("todos", use: todoController.index)
-//    router.post("todos", use: todoController.create)
-//    router.delete("todos", Todo.parameter, use: todoController.delete)
+    // 1
+    let petController = PetsController()
+    // 2
+    try router.register(collection: petController)
+    
+    // 1
+    let segmentsController = SegmentsController()
+    // 2
+    try router.register(collection: segmentsController)
 }
 
 

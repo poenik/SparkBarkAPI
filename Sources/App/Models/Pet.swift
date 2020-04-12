@@ -17,8 +17,10 @@ final class Pet: Codable {
     var name: String
     var age: Int
     var gender: String
-    
-
+    var segments: Siblings<Pet, Segment, PetSegmentPivot> {
+    // 2
+      return siblings()
+    }
     /// Creates a new `Pet`.
     init(id: Int? = nil, name: String, age: Int, gender: String) {
         self.id = id
@@ -31,3 +33,6 @@ final class Pet: Codable {
 extension Pet: SQLiteModel {}
 extension Pet: Migration {}
 extension Pet: Content {}
+extension Pet: Parameter {}
+
+
