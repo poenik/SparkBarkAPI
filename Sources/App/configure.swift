@@ -1,4 +1,5 @@
 import FluentSQLite
+import Fluent
 import Vapor
 
 /// Called before your application initializes.
@@ -31,6 +32,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     migrations.add(model: Pet.self, database: .sqlite)
     migrations.add(model: Segment.self, database: .sqlite)
     migrations.add(model: PetSegmentPivot.self, database: .sqlite)
-    migrations.add(model: Body.self, database: .sqlite)
+    migrations.add(model: Card.self, database: .sqlite)
     services.register(migrations)
 }

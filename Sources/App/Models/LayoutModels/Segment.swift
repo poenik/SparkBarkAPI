@@ -13,15 +13,17 @@ enum SegmentType: Int, Codable {
 final class Segment: Codable {
     /// The unique identifier for this `Todo`.
     var id: Int?
+    var cardID: Int
 
     /// A title describing what this `Todo` entails.
     var type: SegmentType?
-    var body: [String: String]
+    //var body: [String: String]
 
     /// Creates a new `Todo`.
-    init(id: Int? = nil, type: SegmentType? = .empty) {
+    init(id: Int? = nil, type: SegmentType? = .empty, cardID: Int) {
         self.id = id
         self.type = type
+        self.cardID = cardID
     }
 }
 
@@ -35,3 +37,9 @@ extension Segment: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Segment: Parameter { }
+
+extension Segment {
+    var card: Parent<Segment, Card> {
+        return parent(\.cardID)
+    }
+}
