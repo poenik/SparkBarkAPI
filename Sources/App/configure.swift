@@ -33,5 +33,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     migrations.add(model: Segment.self, database: .sqlite)
     migrations.add(model: PetSegmentPivot.self, database: .sqlite)
     migrations.add(model: Card.self, database: .sqlite)
+    migrations.add(model: Attribute.self, database: .sqlite)
     services.register(migrations)
 }

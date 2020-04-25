@@ -8,16 +8,23 @@
 import FluentSQLite
 import Vapor
 
-final class Card: SQLiteModel {
+final class Card: Codable {
     var id: Int?
-    var username: String
+    var title: String?
+    var subtitle: String?
+    var body: String?
+    var imageURL: String?
 
-    init(id: Int? = nil, username: String) {
+    init(id: Int? = nil, title: String?, subtitle: String?, body: String?, imageURL: String?) {
         self.id = id
-        self.username = username
+        self.title = title
+        self.subtitle = subtitle
+        self.body = body
+        self.imageURL = imageURL
     }
 }
 
+extension Card: SQLiteModel {}
 extension Card: Content {}
 extension Card: Migration {}
 extension Card: Parameter {}

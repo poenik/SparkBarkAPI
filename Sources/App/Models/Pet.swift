@@ -17,10 +17,10 @@ final class Pet: Codable {
     var name: String
     var age: Int
     var gender: String
-    var segments: Siblings<Pet, Segment, PetSegmentPivot> {
-        // 2
-        return siblings()
-    }
+//    var segments: Siblings<Pet, Segment, PetSegmentPivot> {
+//        // 2
+//        return siblings()
+//    }
     /// Creates a new `Pet`.
     init(id: Int? = nil, name: String, age: Int, gender: String, cardID: Int) {
         self.id = id
@@ -42,8 +42,26 @@ extension Pet {
     }
 }
 
+extension Pet {
+    var segments: Children<Pet, Segment> {
+        return children(\.cardID)
+    }
+}
+
 struct PetAndSegment: Content {
-    let pet: Pet
-    let segment: Segment
+    
+    let id: Int?
+    /// Details about what this `Pet` entails.
+    let name: String
+    let age: Int
+    let gender: String
+    let segments: [Segment]
+    init(pet: Pet, segments: [Segment]) {
+        self.id = pet.id
+        self.name = pet.name
+        self.age = pet.age
+        self.gender = pet.gender
+        self.segments = segments
+    }
 }
 

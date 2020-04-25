@@ -84,6 +84,12 @@ public func routes(_ router: Router) throws {
     // 2
     try router.register(collection: segmentsController)
     
+    let attributesController = AttributesController()
+    try router.register(collection: attributesController)
+    
+    let cardsController = CardsController()
+    try router.register(collection: cardsController)
+    
     router.get("cards") { req -> Future<[CardAndPet]> in
         let usersWithCats = Card.query(on: req)
             .join(\Pet.cardID, to: \Card.id)
@@ -118,6 +124,7 @@ public func routes(_ router: Router) throws {
             return card.save(on: req)
         }
     }
+    
     
 //    router.post("cards") { req -> Future<Pet> in
 //        return try req.content.decode(Pet.self).flatMap(to: Pet.self) { card in // 3

@@ -15,6 +15,7 @@ struct SegmentsController: RouteCollection {
         segmentsRoute.post(Segment.self, use: createHandler)
         segmentsRoute.get(use: getAllHandler)
         segmentsRoute.get(Segment.parameter, use: getHandler)
+        segmentsRoute.put(Segment.parameter, use: updateHandler) // 4
     }
     // 5
     func createHandler(_ req: Request, segment: Segment) throws -> Future<Segment> { // 6
@@ -25,9 +26,9 @@ struct SegmentsController: RouteCollection {
            return try flatMap(
                to: Segment.self, req.parameters.next(Segment.self), req.content.decode(Segment.self)
            ) { Segment, updatedSegment in
-               Segment.cardID = updatedSegment.cardID
-               return Segment.save(on: req)
-           } }
+            Segment.cardID = updatedSegment.cardID
+            return Segment.save(on: req)
+        } }
 
        func deleteHandler(_ req: Request) throws -> Future<HTTPStatus> {
            return try req
