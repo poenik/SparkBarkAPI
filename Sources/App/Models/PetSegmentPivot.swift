@@ -5,11 +5,11 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentMySQL
+import FluentPostgreSQL
 import Foundation
 
 // 1
-final class PetSegmentPivot: MySQLUUIDPivot, ModifiablePivot {
+final class PetSegmentPivot: PostgreSQLUUIDPivot, ModifiablePivot {
     // 2
     var id: UUID?
     // 3

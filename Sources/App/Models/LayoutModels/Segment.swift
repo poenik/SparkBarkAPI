@@ -1,4 +1,4 @@
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 enum ContainerType: Int, Codable {
@@ -97,7 +97,7 @@ final class Segment: Codable {
     }
 }
 
-extension Segment: MySQLModel { }
+extension Segment: PostgreSQLModel { }
 
 /// Allows `Todo` to be used as a dynamic migration.
 extension Segment: Migration { }
@@ -142,7 +142,7 @@ final class Attribute: Codable {
     }
 }
 
-extension Attribute: MySQLModel { }
+extension Attribute: PostgreSQLModel { }
 
 /// Allows `Attribute` to be used as a dynamic migration.
 extension Attribute: Migration { }

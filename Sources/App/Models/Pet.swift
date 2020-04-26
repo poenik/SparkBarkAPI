@@ -5,7 +5,7 @@
 //  Created by Nico on 26/01/2020.
 //
 
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 /// A single entry of a Todo list.
@@ -31,7 +31,7 @@ final class Pet: Codable {
     }
 }
 
-extension Pet: MySQLModel {}
+extension Pet: PostgreSQLModel {}
 extension Pet: Migration {}
 extension Pet: Content {}
 extension Pet: Parameter {}

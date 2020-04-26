@@ -5,7 +5,7 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 enum Size: Int, Codable {
@@ -41,7 +41,7 @@ final class Body: Codable {
     }
 }
 
-extension Body: MySQLModel {}
+extension Body: PostgreSQLModel {}
 extension Body: Migration {}
 extension Body: Content {}
 extension Body: Parameter {}

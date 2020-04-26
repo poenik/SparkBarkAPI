@@ -5,7 +5,7 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 final class Card: Codable {
@@ -24,7 +24,7 @@ final class Card: Codable {
     }
 }
 
-extension Card: MySQLModel {}
+extension Card: PostgreSQLModel {}
 extension Card: Content {}
 extension Card: Migration {}
 extension Card: Parameter {}
