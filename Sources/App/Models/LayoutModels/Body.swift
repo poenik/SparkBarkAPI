@@ -5,7 +5,7 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 enum Size: Int, Codable {
@@ -41,7 +41,7 @@ final class Body: Codable {
     }
 }
 
-extension Body: SQLiteModel {}
+extension Body: MySQLModel {}
 extension Body: Migration {}
 extension Body: Content {}
 extension Body: Parameter {}

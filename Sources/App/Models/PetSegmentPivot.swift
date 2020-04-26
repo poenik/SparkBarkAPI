@@ -5,11 +5,11 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentSQLite
+import FluentMySQL
 import Foundation
 
 // 1
-final class PetSegmentPivot: SQLiteUUIDPivot, ModifiablePivot {
+final class PetSegmentPivot: MySQLUUIDPivot, ModifiablePivot {
     // 2
     var id: UUID?
     // 3

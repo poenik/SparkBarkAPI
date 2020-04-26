@@ -5,7 +5,7 @@
 //  Created by Nico Poenar on 12/04/2020.
 //
 
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 final class Card: Codable {
@@ -24,7 +24,7 @@ final class Card: Codable {
     }
 }
 
-extension Card: SQLiteModel {}
+extension Card: MySQLModel {}
 extension Card: Content {}
 extension Card: Migration {}
 extension Card: Parameter {}

@@ -5,7 +5,7 @@
 //  Created by Nico on 26/01/2020.
 //
 
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.
@@ -31,7 +31,7 @@ final class Pet: Codable {
     }
 }
 
-extension Pet: SQLiteModel {}
+extension Pet: MySQLModel {}
 extension Pet: Migration {}
 extension Pet: Content {}
 extension Pet: Parameter {}

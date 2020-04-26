@@ -1,4 +1,4 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 enum ContainerType: Int, Codable {
@@ -97,7 +97,7 @@ final class Segment: Codable {
     }
 }
 
-extension Segment: SQLiteModel { }
+extension Segment: MySQLModel { }
 
 /// Allows `Todo` to be used as a dynamic migration.
 extension Segment: Migration { }
@@ -142,7 +142,7 @@ final class Attribute: Codable {
     }
 }
 
-extension Attribute: SQLiteModel { }
+extension Attribute: MySQLModel { }
 
 /// Allows `Attribute` to be used as a dynamic migration.
 extension Attribute: Migration { }
